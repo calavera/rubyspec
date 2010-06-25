@@ -10,7 +10,7 @@ ruby_version_is "1.9" do
     end
 
     it "doesn't raise Errno::ENOENT if the file doesn't exist" do
-      lambda { File.readdirpath('waduswadus') }.should_not raise_error(Errno::ENOENT)
+      lambda { File.realdirpath('waduswadus') }.should_not raise_error(Errno::ENOENT)
     end
   end
 end
