@@ -212,6 +212,14 @@ describe :kernel_float, :shared => true do
       nan2.nan?.should be_true
       nan2.should equal(nan)
     end
+
+    it "returns the decimal representation of an hexadecimal number passed as string" do
+      @object.send(:Float, '0xA').should == 10.0
+    end
+
+    it "raises an ArgumentError for string with any non-digit in them" do
+      lambda { @object.send(:Float, '0xx5') }.should raise_error(ArgumentError)
+    end
   end
 
   it "returns the identical Infinity if to_f is called and it returns Infinity" do
